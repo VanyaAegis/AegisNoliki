@@ -1,0 +1,9 @@
+AEGISNOLIKI — PROPRIETARY SOFTWARE
+
+Copyright (c) 2026 AegisNoliki
+
+This package is intended for distribution by the copyright holder.
+Unless separately authorized in writing, redistribution, resale, reverse engineering,
+modification, or extraction of the software's source code is not permitted.
+
+This template is not legal advice. Replace it with your final license/EULA before commercial sale.

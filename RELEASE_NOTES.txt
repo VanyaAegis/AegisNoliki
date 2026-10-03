@@ -1,0 +1,83 @@
+AegisNoliki — BACKGROUND SYSTEM PASS
+- Unified background rendering lifecycle across loading and normal screens.
+- Background render caches are invalidated when the window size changes.
+- Animated custom backgrounds keep only the active scaled frame instead of accumulating scaled GIF frames.
+- Overlay and vignette surfaces are cached and rebuilt only when their parameters change.
+- Custom background rendering now fails safe to the procedural background if a user asset is damaged.
+- Background animation timing uses the main frame delta and is capped against stalls/minimized-window jumps.
+
+VALIDATION
+- Full project py_compile: PASS.
+- No Python syntax errors after the background-system changes.
+
+AegisNoliki 1.3.1 — FUN MODES GAMEPLAY PASS
+
+GAMEPLAY PASS
+- Reworked movement/collision so large arenas have walls, routes and readable spaces.
+- DOMINATION now revolves around territory painting plus contested power nodes.
+- CONQUEST now has a single active beacon, creating a clear rotating objective instead of five simultaneous dots.
+- BATTLEFIELD now has cover, ammunition economy, projectiles and pickups.
+- HUNT now uses directional hunter vision and stealth pressure instead of a generic detection circle.
+- BOMB RUN now has a real fuse, controlled handoff cooldown and blast radius.
+- KING OF THE HILL now relocates the hill during a match.
+- STORM now uses a circular shrinking safe zone and shield charges.
+- CHAOS ARENA now applies explicit timed rule modifiers.
+- WORLD WAR now has resource-powered fort construction and two-way base capture pressure.
+- BOSS RAID now has phase transitions, vulnerability windows, distinct attack patterns and telegraphed danger tiles.
+- Improved mode-specific HUDs and arena objects so goals are visually readable at a glance.
+
+VALIDATION
+- Full project py_compile: PASS.
+- Existing core unit suite: 3/3 PASS.
+- Static mode audit: 10/10 unique mode branches PASS.
+- Windows graphical EXE still requires the project's Windows pygame/PyInstaller environment for a real window test.
+
+AegisNoliki 1.2.0 — FUN MODES REWORK
+
+REWORK
+- Rebuilt all 10 FUN MODES as distinct arcade games instead of variants of one grid mechanic.
+- DOMINATION: visible territory painting with score control and energy cores.
+- CONQUEST: five large capture zones with contested progress bars.
+- BATTLEFIELD: moving arena combat with projectiles, HP and energy cores.
+- HUNT: runner collects three keys while avoiding a clearly visible hunter vision radius.
+- BOMB RUN: live bomb handoff with countdown and dash escape.
+- KING OF THE HILL: large central control zone with contesting bot.
+- STORM: shrinking safe zone, shields and survival pressure.
+- CHAOS ARENA: collectible race with timed arena-wide events and event banners.
+- WORLD WAR: large bases, resources, frontline pressure and buildable defenses.
+- BOSS RAID: three boss phases, telegraphed danger zones, attacks, crystals and dash.
+- Player and bot now have distinct silhouettes and labels instead of indistinguishable dots.
+- Each mode has its own objective HUD and control hints.
+
+VALIDATION
+- fan_game.py compiles successfully.
+- Full existing core unit suite: 3/3 passed.
+- Static mode audit: 10/10 mode definitions have unique objectives/rules and dedicated update/render branches.
+- Windows graphical EXE cannot be launched in this Linux build environment because pygame-ce/PyInstaller are not installed here.
+
+AegisNoliki 1.1.1 — FUN MODES RELEASE
+
+NEW
+- Added a dedicated FUN MODES tab for large-board arcade gameplay.
+- Added 10 playable modes: DOMINATION, CONQUEST, BATTLEFIELD, HUNT, BOMB RUN, KING OF THE HILL, STORM, CHAOS ARENA, WORLD WAR and BOSS RAID.
+- Added a mode details screen with description/rules and BACK / PLAY buttons.
+- Added large arenas from 12x12 to 30x30 with procedural rendering; no extra assets are required.
+- Added movement controls (WASD / arrows), objectives, hazards, territory capture, timers and boss combat.
+- Added a dedicated result screen with replay and back controls.
+
+COMPATIBILITY
+- Ranked / Classic 3x3 remains isolated from FUN MODES.
+- FUN MODES use their own gameplay state and do not change Ranked MMR.
+- Build script now packages fan_game.py into the Windows release.
+
+VALIDATION
+- Python syntax check passed for all project modules.
+- Existing core unit tests passed (3/3).
+- FUN MODES smoke test passed for all 10 mode definitions and Boss combat.
+- Full graphical runtime/EXE validation requires the Windows dependencies (pygame-ce/PyInstaller) and a Windows environment; this development environment does not contain pygame and has no package-network access.
+
+1.1.1 — FUN MODES CENTERING FIX
+- Fixed Fun Modes large-board rendering on resized, widescreen and 1080p/1440p/4K windows.
+- Fun Mode board cells, markers, zones and boss visuals now use the same centered/scaled viewport as the main UI.
+- Prevented the Fun Mode board from rendering in the physical canvas top-left corner.
+- Kept Ranked / Classic 3x3 rendering and input architecture unchanged.
